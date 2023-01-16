@@ -1,0 +1,34 @@
+#include<stdio.h>
+ 
+void main()
+{
+ 
+    int math,phy,che,total,totalmp;
+ 
+    printf("\n\nEnter the marks of mathematics=");
+    scanf("%d",&math);
+ 
+    printf("\n\nEnter the marks of physics=");
+    scanf("%d",&phy);
+ 
+    printf("\n\nEnter the marks of chemistry=");
+    scanf("%d",&che);
+ 
+    total=math+phy+che;
+    totalmp=math+phy;
+ 
+    printf("\n\nTotal of all subject=%d",total);
+    printf("\n\nTotal of mathematics and physics=%d",totalmp);
+     
+    if(math>=50&&phy>=45&&che>=60&&total>=170&&totalmp>=120)
+    {
+        printf("\n\n\n\n\nStudent is eligible for admission\n\n\n");
+    }
+ 
+    else
+    {
+        printf("\n\n\n\n\nStudent is not eligible for admission\n\n\n");
+    }
+     
+         
+}
