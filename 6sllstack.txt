@@ -1,0 +1,179 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+	int info;
+	struct node *link;
+};
+struct node *top=0;
+void push(int x)
+{
+ 	struct node *newnode;
+ 	newnode=(struct node*)malloc(sizeof(struct node));
+ 	newnode->info = x;
+ 	newnode->link = top;
+ 	top=newnode;
+ }
+ void pop()
+ {
+ 	struct node*temp;
+ 	temp=top;
+ 	if(temp==NULL)
+ 	{
+ 		printf("UNDERFLOW");
+ 	}
+ 	else
+ 	{
+ 		printf("the poped element is %d",top->info);
+ 		top=top->link;
+ 	}
+ }
+ void search()
+ {
+ 	struct node *temp;
+ 	int i=0,flag,item;
+ 	temp=top;
+ 	printf("enter item you want to search\n");
+ 		scanf("%d",&item);
+ 	while(temp!=NULL)
+ 	{
+ 	if(temp->info==item)
+ 	{
+ 		printf("item found at position=%d",i+1);
+ 		flag=1;
+ 		break;
+ 	}
+ 	else
+ 	{
+ 		temp=temp->link;
+ 		i++;
+ 	}
+ 	
+ 	}	
+ }
+ void concat()
+ {	int n1,n2;
+ 	struct node *newnode1,*newnode2,*head1,*head2,*temp1,*temp2,*j;
+ 	printf("enter the number of node1:");
+ 	scanf("%d",&n1);
+ 	printf("enter the elements:");
+ 	head1=NULL;
+ 	for(int i=0;i<n1;i++)
+ {
+ 		newnode1=(struct node *)malloc(sizeof(struct node));
+ 		scanf("%d",&newnode1->info);
+ 		newnode1->link=0;
+ 	
+ 
+ 	
+ 	if(head1==NULL)
+ 	{
+ 		head1=temp1=newnode1;
+ 	}
+ 	else
+ 	{
+		temp1->link=newnode1;
+		temp1=newnode1;
+	
+	}	
+}
+
+ 	printf("enter the number of node2:");
+ 	scanf("%d",&n2);
+ 	printf("enter the elements:");
+ 	head2=NULL;
+ 	for(int i=0;i<n2;i++)
+ 	{
+ 		newnode2=(struct node *)malloc(sizeof(struct node));
+ 		scanf("%d",&newnode2->info);
+ 		newnode2->link=0;
+ 	
+ 
+ 	if(head2==NULL)
+ 	{
+ 		head2=temp2=newnode2;
+ 	}
+ 	else
+ 	{
+ 		temp2->link=newnode2;
+ 		temp2=newnode2;
+ 	
+	 }
+	 }
+ 	j=head1;
+ 	while(j->link!=NULL)
+ 	{
+ 		j=j->link;
+ 	}
+ 	j->link=head2;
+ 	head2=NULL;
+ 	printf("\n concatination");
+ 	j= head1;
+ 	while(j!= NULL)
+ 	{
+ 		printf("%d\t",j->info);
+ 		j=j->link;
+ 	}
+ }
+ 	
+ void display()
+ {
+ 	struct node *temp;
+ 	temp=top;
+ 	if(temp==NULL)
+ 	{
+ 		printf("underflow");
+ 	}
+ 	while(temp!=NULL)
+ 	{
+ 		printf("%d\t",temp->info);
+ 		temp=temp->link;
+ 	}
+ }
+ 
+ void main()
+{
+	int n,choice,x;
+	do
+	{
+		printf("menue");
+		printf("\n1.push");
+		printf("\n2.pop");
+		printf("\n3.display");
+		printf("\n4.search");
+		printf("\n5.concatination");
+		printf("\n6.exit");
+		printf("\nenter the  choice:");
+		scanf("%d",&choice);
+	switch(choice)
+	{
+		case 1:
+			printf("enter the number of element");
+			scanf("%d",&n);
+			printf("enter the item");
+			for(int i=0;i<n;i++)
+			{
+				
+				scanf("%d",&x);
+				push(x);
+			}
+		
+			break;
+		case 2:pop();
+			break;
+			
+			
+		case 3:display();
+			break;
+			
+			
+		case 4:search();
+			break;
+		case 5:concat();
+			break;
+		case 6:exit(0);
+		
+	}
+	}while(choice<=6);
+}				
